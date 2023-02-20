@@ -63,7 +63,7 @@ exports.getPdf = async (req, res) => {
                 collectedby: "Yagnesh"
             };
             let filename = data[0].name + ".pdf"
-            var output = fs.createWriteStream('output.pdf')
+            var output = fs.createWriteStream('tmp/output.pdf')
             console.log(replacements);
             var htmlToSend = template(replacements);
             conversion({ html: htmlToSend }, async function (err, pdf) {
@@ -72,7 +72,7 @@ exports.getPdf = async (req, res) => {
                 await pdf.stream.pipe(output);
             });
             setTimeout(() => {
-                res.download('./output.pdf', filename)
+                res.download('./tmp/output.pdf', filename)
                 // fs.unlink(filename)
             }, 2000);
         })
