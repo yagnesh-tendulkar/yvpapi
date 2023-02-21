@@ -4,7 +4,11 @@
   "scripts": {
     "start": "node app.js"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
+    "aws-sdk": "^2.1318.0",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",

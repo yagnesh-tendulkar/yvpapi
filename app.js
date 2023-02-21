@@ -41,5 +41,23 @@ app.listen(port, () => {
     console.log("Server started on port: " + port);
 })
 
+// const AWS = require("aws-sdk");
+// const s3 = new AWS.S3()
+// async function test(){
 
+//     await s3.putObject({
+//         Body: JSON.stringify({key:"value"}),
+//         Bucket: "cyclic-outstanding-veil-calf-ap-southeast-2",
+//         Key: "tmp/output.pdf",
+//     }).promise()
+    
+//     // get it back
+//     let my_file = await s3.getObject({
+//         Bucket: "cyclic-outstanding-veil-calf-ap-southeast-2",
+//         Key: "tmp/output.pdf",
+//     }).promise()
+    
+//     console.log(JSON.parse(my_file))
+// }
+// test()
 module.exports = app;
