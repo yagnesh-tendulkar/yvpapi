@@ -8,8 +8,9 @@ let data = fs.readFileSync("./receipt.html")
 var path = require('path')
 var handlebars = require('handlebars');
 exports.registerUser = function (req, res) {
+    console.log(req.body);
     register.retrive({ _id: req.body._id }, (err, data) => {
-        console.log(data)
+        console.log(data,err)
         if (data.length == 0) {
             register.addUser(req.body, (err, data) => {
                 res.status(200).send({ msg: "User added succesfully" })
@@ -60,7 +61,8 @@ exports.getPdf = async (req, res) => {
                 name: data[0].name,
                 phone: data[0]._id,
                 amount: data[0].amount,
-                collectedby: "Yagnesh"
+                address: data[0].address,
+                collectedby:  data[0].collectedBy,
             };
             let filename = data[0].name + ".pdf"
             var output = fs.createWriteStream('tmp/output.pdf')
